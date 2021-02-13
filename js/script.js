@@ -31,10 +31,15 @@ const titleClickHandler = function(event){
     }
 
     /* get 'href' attribute from the clicked link */
+    const articleName = clickedElement.getAttribute('href');
+    console.log('Href attribute: ', articleName);
 
     /* find the correct article using the selector (value of 'href' attribute) */
+    const clickedArticle = document.querySelector('.posts ' + articleName);
+    console.log('clickedArticle: ', clickedArticle);
 
     /* add class 'active' to the correct article */
+    clickedArticle.classList.add('active');
 }
 
 const links = document.querySelectorAll('.titles a');
