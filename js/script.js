@@ -4,7 +4,7 @@
     console.log('links:', links);
   });*/
 {
-    // Wyświetlanie artykułów po kliknięciu
+    // Wyświetlanie artykułów po kliknięciu cz.1
     const titleClickHandler = function(event){
         /* zawsze to dadać przy funkcjach - handlerach - po kliknięciu */
         const clickedElement = this;
@@ -44,13 +44,55 @@
         clickedArticle.classList.add('active');
     }
 
+    // Generowanie listy tytułów
+
+    const optArticleSelector = '.post',
+        optTitleSelector = '.post-title',
+        optTitleListSelector = '.titles';
+
+    
+    function generateTitleLinks(){
+
+        console.log('Function is on!');
+
+        /* remove contents of titleList */
+        const titleList = document.querySelector(optTitleListSelector);
+        titleList.innerHTML = '';
+
+        let html = '';
+        const articles = document.querySelectorAll(optArticleSelector);
+        
+        /* for each article */
+        for(let article of articles){
+            /* get the article id */
+            const articleId = article.getAttribute('id');
+            console.log('articleId: ', articleId);
+        
+            /* find the title element and get the title from the title element */
+            const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+            console.log('articleTitle: ', articleTitle);
+
+            /* create HTML of the link */
+            const codeHTML = '<li><a href="#' + articleId + '"><span>' +articleTitle + '</span></a></li>';
+            console.log('HTML code: ', codeHTML);
+
+            /* insert link into titleList */
+            // titleList.innerHTML = titleList.innerHTML + codeHTML;
+            // titleList.insertAdjacentHTML('beforeend', codeHTML);
+            html = html + codeHTML;
+        }
+
+        titleList.innerHTML = html;
+    }
+      
+    generateTitleLinks();
+
+    // Wyświetlanie artykułów po kliknięciu cz.2
     const links = document.querySelectorAll('.titles a');
+    console.log(links)
 
     for(let link of links){
         link.addEventListener('click', titleClickHandler);
     }
-}
-{
-    // Generowanie listy tytułów
 
 }
