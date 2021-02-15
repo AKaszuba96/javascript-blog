@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 /*document.getElementById('test-button').addEventListener('click', function(){
     const links = document.querySelectorAll('.titles a');
     console.log('links:', links);
@@ -42,7 +42,7 @@
 
         /* [DONE] add class 'active' to the correct article */
         clickedArticle.classList.add('active');
-    }
+    };
 
     // Generowanie listy tytułów
 
@@ -51,7 +51,7 @@
         optTitleListSelector = '.titles';
 
     
-    function generateTitleLinks(){
+    const generateTitleLinks = function(){
 
         console.log('Function is on!');
 
@@ -83,13 +83,13 @@
         }
 
         titleList.innerHTML = html;
-    }
+    };
       
     generateTitleLinks();
 
     // Wyświetlanie artykułów po kliknięciu cz.2
     const links = document.querySelectorAll('.titles a');
-    console.log(links)
+    console.log(links);
 
     for(let link of links){
         link.addEventListener('click', titleClickHandler);
